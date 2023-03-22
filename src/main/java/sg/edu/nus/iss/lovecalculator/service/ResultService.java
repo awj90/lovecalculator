@@ -28,7 +28,7 @@ public class ResultService {
 
     // unlike the weather API, the developer key for this case is not 'provided' via the url, but in the HTTP request header
     @Value("${love.calculator.api.key}")
-    private String loveCalculatorApiKey; // e09a344cb3mshfcf4a80615e253ep1c2321jsn248dfe50a4f2
+    private String loveCalculatorApiKey; 
 
     @Value("${love.calculator.api.host}")
     private String loveCalculatorApiHost; // love-calculator.p.rapidapi.com
