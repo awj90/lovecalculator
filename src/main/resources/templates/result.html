@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results</title>
+  </head>
+  <body>
+    <table border="solid">
+      <tr>
+        <th>Name 1</th>
+        <th>Name 2</th>
+        <th>Percentage Compability</th>
+        <th>Advice</th>
+      </tr>
+      <tr data-th-object="${response}">
+        <td data-th-text="*{sname}"></td>
+        <td data-th-text="*{fname}"></td>
+        <td data-th-text="*{percentage}"></td>
+        <td data-th-text="*{result}"></td>
+      </tr>
+    </table>
+    <br />
+    <a href="/">Back</a>
+  </body>
+</html>
