@@ -50,7 +50,7 @@ public class ResultService {
         ResponseEntity<String> resp = restTemplate.exchange(fullUrl, HttpMethod.GET,
                 requestEntity, String.class);
         
-        Result result = Result.ApiResponseToJavaObject(resp.getBody());
+        Result result = Result.jsonStringToJavaObject(resp.getBody());
         resultRepository.saveResult(result);
 
         if (result!=null) {

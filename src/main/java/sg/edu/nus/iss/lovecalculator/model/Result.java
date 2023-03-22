@@ -55,27 +55,27 @@ public class Result implements Serializable{
         this.id = id;
     }
 
-    public static Result jsonStringToJavaObject(String json) throws IOException {
-        Result r = new Result();
+    // public static Result jsonStringToJavaObject(String json) throws IOException {
+    //     Result r = new Result();
 
-        if (json!=null) {
-            InputStream is = new ByteArrayInputStream(json.getBytes());
-            JsonReader jsonReader = Json.createReader(is);
-            JsonObject jsonObject = jsonReader.readObject();
+    //     if (json!=null) {
+    //         InputStream is = new ByteArrayInputStream(json.getBytes());
+    //         JsonReader jsonReader = Json.createReader(is);
+    //         JsonObject jsonObject = jsonReader.readObject();
             
-            // remove encoding chars from API (eg. %20 for space)
-            String decodedSname = URLDecoder.decode(jsonObject.getString("fname"), "UTF-8");
-            String decodedFname = URLDecoder.decode(jsonObject.getString("sname"), "UTF-8");
+    //         // remove encoding chars from API (eg. %20 for space)
+    //         String decodedSname = URLDecoder.decode(jsonObject.getString("fname"), "UTF-8");
+    //         String decodedFname = URLDecoder.decode(jsonObject.getString("sname"), "UTF-8");
 
-            r.setFname(decodedSname);
-            r.setSname(decodedFname);
-            r.setPercentage(jsonObject.getJsonNumber("percentage").intValue());
-            r.setResult(jsonObject.getString("result"));
-        }
-        return r;
-    }
+    //         r.setFname(decodedSname);
+    //         r.setSname(decodedFname);
+    //         r.setPercentage(jsonObject.getJsonNumber("percentage").intValue());
+    //         r.setResult(jsonObject.getString("result"));
+    //     }
+    //     return r;
+    // }
 
-    public static Result ApiResponseToJavaObject(String json) throws IOException {
+    public static Result jsonStringToJavaObject(String json) throws IOException {
         Result r = new Result();
 
         if (json!=null) {
@@ -99,7 +99,7 @@ public class Result implements Serializable{
         return Json.createObjectBuilder()
                     .add("sname", this.getSname())
                     .add("fname", this.getFname())
-                    .add("percentage", this.getPercentage())
+                    .add("percentage", String.valueOf(this.getPercentage()))
                     .add("result", this.getResult())
                     .add("id", this.getId())
                     .build();
